@@ -72,14 +72,14 @@ class SignInViewController: UIViewController {
         
         
         
-        //HTTP Request
+        //Formatting the HTTP Request
         let requestURL = URL(string: "http://nova.us-east-2.elasticbeanstalk.com/api/Student/ID/1")
         var request = URLRequest(url:requestURL!)
         request.httpMethod = "GET"
         //request.addValue("application/json", forHTTPHeaderField: "content/json")
         //request.addValue("application/json", forHTTPHeaderField: "Accept")
-        let sendString = ["userName": userNameTextField.text!,
-                          "password": passwordTextField.text!] as [String:String]
+        let sendString = ["userName": username!,
+                          "password": password!] as [String:String]
         
         /*
         do
