@@ -11,10 +11,13 @@ import UIKit
 class HomePageViewController: UIViewController {
 
     @IBOutlet weak var userNameTextField: UILabel!
+    var welcomeMessageFinal = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        userNameTextField.text = "Welcome, " + welcomeMessageFinal
+        
         // Do any additional setup after loading the view.
     }
     

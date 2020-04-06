@@ -12,6 +12,7 @@ class SignInViewController: UIViewController {
 
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var welcomeMessage = ""
     
     func displayAlert(message:String)->Void{
         DispatchQueue.main.async{
@@ -71,26 +72,18 @@ class SignInViewController: UIViewController {
         
         
         
+        //Format the string needed to proper format to login
         
         //Formatting the HTTP Request
-        let requestURL = URL(string: "http://nova.us-east-2.elasticbeanstalk.com/api/Student/ID/1")
+        let requestURL = URL(string: "http://nova.us-east-2.elasticbeanstalk.com/api/Student/ID/1")//1")
+        //requestURL += username
+        //print("RequestURL", requestURL)
         var request = URLRequest(url:requestURL!)
         request.httpMethod = "GET"
         //request.addValue("application/json", forHTTPHeaderField: "content/json")
         //request.addValue("application/json", forHTTPHeaderField: "Accept")
-        let sendString = ["userName": username!,
-                          "password": password!] as [String:String]
-        
-        /*
-        do
-        {
-            request.httpBody = try JSONSerialization.data(withJSONObject: sendString, options: .prettyPrinted)
-        }
-        catch let error
-        {
-            print(error.localizedDescription)
-        }
-        */
+        //let sendString = ["userName": username!,
+        //                  "password": password!] as [String:String]
         
         let task = URLSession.shared.dataTask(with: request)
         {
@@ -146,13 +139,21 @@ class SignInViewController: UIViewController {
 
         task.resume()
          
-        
+        self.welcomeMessage = username!
+        performSegue(withIdentifier: "SegToHome", sender: self)
         //let passAuthentication = false
         //go to next page
         let HomePageViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController") as! HomePageViewController
         
         self.present(HomePageViewController, animated: true)
         
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var hvc = segue.destination as! HomePageViewController
+        hvc.welcomeMessageFinal = self.welcomeMessage
     }
     
     /*

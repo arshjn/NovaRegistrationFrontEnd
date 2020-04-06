@@ -56,6 +56,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="ijo-qQ-Guw" id="hGR-FC-D7C"/>
                         <outlet property="userNameTextField" destination="Owp-zo-s7d" id="hue-mV-SX7"/>
+                        <segue destination="Y4W-1q-4cG" kind="presentation" identifier="SegToHome" id="Ztq-Tq-vRT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -67,7 +68,7 @@
             <objects>
                 <viewController storyboardIdentifier="HomePageViewController" id="Y4W-1q-4cG" customClass="HomePageViewController" customModule="NovaRegistration" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R72-vL-KQs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2A-c7-474">
