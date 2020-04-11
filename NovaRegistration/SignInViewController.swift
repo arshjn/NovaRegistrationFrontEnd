@@ -58,6 +58,7 @@ class SignInViewController: UIViewController {
         let password = passwordTextField.text
         
         
+        
         //Activity indicator
         let myActivityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
         
@@ -75,16 +76,19 @@ class SignInViewController: UIViewController {
         //Format the string needed to proper format to login
         
         //Formatting the HTTP Request
-        let requestURL = URL(string: "http://nova.us-east-2.elasticbeanstalk.com/api/Student/ID/1")//1")
+        //var requestURL = URLComponents(string: "http://nova.us-east-2.elasticbeanstalk.com/api/")
+        //requestURL.queryItems[(NNumber: username, Pass: password)]
+        var url = "http://nova.us-east-2.elasticbeanstalk.com/api/User?NNumber="+username!+"&Pass="+password!;
+        print("url:", url)
+        let requestURL = URL(string: String(url))//1")
         //requestURL += username
         //print("RequestURL", requestURL)
         var request = URLRequest(url:requestURL!)
-        request.httpMethod = "GET"
+        request.httpMethod = "POST"
         //request.addValue("application/json", forHTTPHeaderField: "content/json")
         //request.addValue("application/json", forHTTPHeaderField: "Accept")
         //let sendString = ["userName": username!,
         //                  "password": password!] as [String:String]
-        
         let task = URLSession.shared.dataTask(with: request)
         {
             
@@ -100,11 +104,24 @@ class SignInViewController: UIViewController {
             }
             print("Got pass almost there")
             //Converting data sent from server to our application
+            
             do
             {
-                let Json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? String
+                let Json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? Bool
                 print("Before")
                 print(Json)
+                if Json == true{
+                    print("Can login")
+                    DispatchQueue.main.async {
+                        let HomePageViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController") as! HomePageViewController
+                        
+                        self.present(HomePageViewController, animated: true)
+                    }
+                }
+                else{
+                    print("Cannot come outside")
+                    self.displayAlert(message: "Username or password is incorrect. Please try again")
+                }
                 print("After")
                 /*
                 if let parseJson = Json
@@ -134,11 +151,12 @@ class SignInViewController: UIViewController {
                 print("couldn't do error\(String(describing:error))")
             }
             
-            
+        
         }
-
-        task.resume()
-         
+        /*
+        print("Got HERRE")
+        if canpass == true {
+        print("Entered!!!")
         self.welcomeMessage = username!
         performSegue(withIdentifier: "SegToHome", sender: self)
         //let passAuthentication = false
@@ -146,6 +164,11 @@ class SignInViewController: UIViewController {
         let HomePageViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController") as! HomePageViewController
         
         self.present(HomePageViewController, animated: true)
+        }
+        */
+        task.resume()
+        
+        
         
         
         

@@ -106,7 +106,7 @@
                                 </state>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lf2-Fg-vro">
-                                <rect key="frame" x="0.0" y="30" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Home" id="odk-Lx-7Wy">
@@ -131,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="860.86956521739137" y="120.53571428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--ReserveRoom Controller-->
         <scene sceneID="dYj-MW-H4Q">
             <objects>
-                <viewController id="laC-XG-i56" sceneMemberID="viewController">
+                <viewController title="ReserveRoom Controller" id="laC-XG-i56" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b3A-90-Lzk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,6 +165,21 @@
                 <tapGestureRecognizer id="Lwf-WP-PHJ"/>
             </objects>
             <point key="canvasLocation" x="1611.5942028985507" y="122.54464285714285"/>
+        </scene>
+        <!--Profile Controller-->
+        <scene sceneID="nZZ-Ll-K8C">
+            <objects>
+                <viewController title="Profile Controller" id="wvN-il-Uon" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lsw-4V-yau">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="dM0-dD-eE1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NMW-sP-3fh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2457" y="127"/>
         </scene>
     </scenes>
     <resources>
