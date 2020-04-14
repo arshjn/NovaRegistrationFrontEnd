@@ -175,8 +175,9 @@ class SignInViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var hvc = segue.destination as! HomePageViewController
-        hvc.welcomeMessageFinal = self.welcomeMessage
+        
+        //var hvc = segue.destination as! HomePageViewController
+        //hvc.welcomeMessageFinal = self.welcomeMessage
     }
     
     /*

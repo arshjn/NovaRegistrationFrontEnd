@@ -11,22 +11,31 @@ import UIKit
 class HomePageViewController: UIViewController {
 
     @IBOutlet weak var userNameTextField: UILabel!
-    var welcomeMessageFinal = ""
+    //var welcomeMessageFinal = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userNameTextField.text = "Welcome, " + welcomeMessageFinal
+        //userNameTextField.text = "Welcome, " + welcomeMessageFinal
         
         // Do any additional setup after loading the view.
     }
     
     @IBAction func SignOutButtonPressed(_ sender: Any) {
         print("Sign out button pressed")
+        /*
+        let SignInViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        self.present(SignInViewController, animated: true)
+        //let appDelegate = UIApplication.shared.delegate; appDelegate?.window??.rootViewController = SignInViewController
+        print("Finished with function")
+        */
     }
     
-    @IBAction func LoadDetailsButton(_ sender: Any) {
-        print("Load details button pressed")
+    @IBAction func BookRoomButton(_ sender: Any) {
+        print("Book room button pressed")
+    }
+    @IBAction func ProfileButtonPressed(_ sender: Any) {
+        print("Profile button pressed")
     }
     /*
     // MARK: - Navigation
