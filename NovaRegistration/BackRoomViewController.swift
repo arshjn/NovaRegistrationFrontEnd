@@ -11,13 +11,17 @@ import UIKit
 class BackRoomViewController: UIViewController {
     @IBOutlet weak var RoomSelector: UIPickerView!
     
+    @IBOutlet weak var FloorSelector: UIPickerView!
     @IBOutlet weak var BuildingNameText: UILabel!
     
     var RoomData: [String] = [String]()
+    var FloorData: [Int] = [Int]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.RoomSelector.delegate = self
         self.RoomSelector.dataSource = self
+        self.FloorSelector.delegate = self
+        self.FloorSelector.dataSource = self
         RoomData = [
         "Leo Goodwin Sr. Residence Hall",
         "The Commons",
@@ -27,6 +31,7 @@ class BackRoomViewController: UIViewController {
         "Rolling Hills A",
         "Rolling Hills C"
         ]
+        FloorData = [1,2,3,4]
         // Do any additional setup after loading the view.
     }
     @IBAction func BackButtonPressed(_ sender: Any) {
@@ -39,12 +44,30 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return RoomData.count
+        if pickerView == RoomSelector
+        {
+            return RoomData.count
+        }
+        else
+        {
+            return FloorData.count
+        }
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return RoomData[row]
+        if pickerView == RoomSelector
+        {
+            return RoomData[row]
+        }
+        else
+        {
+            return String(FloorData[row])
+        }
+        
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        BuildingNameText.text = RoomData[row]
+        if pickerView == RoomSelector
+        {
+            BuildingNameText.text = RoomData[row]
+        }
     }
 }
