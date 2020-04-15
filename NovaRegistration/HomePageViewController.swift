@@ -23,19 +23,29 @@ class HomePageViewController: UIViewController {
     
     @IBAction func SignOutButtonPressed(_ sender: Any) {
         print("Sign out button pressed")
+        self.dismiss(animated: true, completion: nil)
         /*
         let SignInViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
         self.present(SignInViewController, animated: true)
         //let appDelegate = UIApplication.shared.delegate; appDelegate?.window??.rootViewController = SignInViewController
         print("Finished with function")
         */
+        
     }
     
     @IBAction func BookRoomButton(_ sender: Any) {
         print("Book room button pressed")
+        let ProfilePageViewController = self.storyboard?.instantiateViewController(withIdentifier:
+              "ProfilePageViewController") as! ProfilePageViewController
+
+        self.present(ProfilePageViewController, animated: true)
     }
     @IBAction func ProfileButtonPressed(_ sender: Any) {
         print("Profile button pressed")
+         let ProfilePageViewController = self.storyboard?.instantiateViewController(withIdentifier:
+                     "ProfilePageViewController") as! ProfilePageViewController
+
+               self.present(ProfilePageViewController, animated: true)
     }
     /*
     // MARK: - Navigation
