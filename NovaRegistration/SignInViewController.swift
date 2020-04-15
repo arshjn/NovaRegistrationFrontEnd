@@ -36,11 +36,7 @@ class SignInViewController: UIViewController {
             activityIndicator.removeFromSuperview()
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    
     
     @IBAction func SignInButtonPressed(_ sender: Any) {
         print("Sign in button pressed")
@@ -113,6 +109,8 @@ class SignInViewController: UIViewController {
                 if Json == true{
                     print("Can login")
                     DispatchQueue.main.async {
+                        self.userNameTextField.text?.removeAll()
+                        self.passwordTextField.text?.removeAll()
                         let HomePageViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController") as! HomePageViewController
                         
                         self.present(HomePageViewController, animated: true)
