@@ -25,7 +25,7 @@ class ProfilePageViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    //@IBOutlet weak var sliderCollectionView: UICollectionView!
+    @IBOutlet weak var sliderCollectionView: UICollectionView!
     
     @IBAction func pageView(_ sender: Any) {
         

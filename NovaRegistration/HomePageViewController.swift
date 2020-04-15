@@ -35,10 +35,10 @@ class HomePageViewController: UIViewController {
     
     @IBAction func BookRoomButton(_ sender: Any) {
         print("Book room button pressed")
-        let ProfilePageViewController = self.storyboard?.instantiateViewController(withIdentifier:
-              "ProfilePageViewController") as! ProfilePageViewController
+        let BackRoomViewController = self.storyboard?.instantiateViewController(withIdentifier:
+              "BackRoomViewController") as! BackRoomViewController
 
-        self.present(ProfilePageViewController, animated: true)
+        self.present(BackRoomViewController, animated: true)
     }
     @IBAction func ProfileButtonPressed(_ sender: Any) {
         print("Profile button pressed")
