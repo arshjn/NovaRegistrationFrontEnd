@@ -109,8 +109,15 @@ class SignInViewController: UIViewController {
                 if Json == true{
                     print("Can login")
                     DispatchQueue.main.async {
+                        //Saving key to keychain
+                        KeychainItemWrapper  self.userNameTextField.text
+                        
+                        
+                        
+                        //Clearing user and password text fields
                         self.userNameTextField.text?.removeAll()
                         self.passwordTextField.text?.removeAll()
+                        //Continuing to next page
                         let HomePageViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController") as! HomePageViewController
                         
                         self.present(HomePageViewController, animated: true)

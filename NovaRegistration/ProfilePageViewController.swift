@@ -9,6 +9,16 @@
 import UIKit
 
 class ProfilePageViewController: UIViewController {
+
+    @IBOutlet weak var FirstNameText: UILabel!
+    @IBOutlet weak var LastNameText: UILabel!
+    @IBOutlet weak var SexText: UILabel!
+    @IBOutlet weak var GradeText: UILabel!
+    
+    @IBAction func BackButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     var imgArr =
     [
@@ -20,19 +30,45 @@ class ProfilePageViewController: UIViewController {
         UIImage(named: "nsuBuilding6"),
         UIImage(named: "nsuBuilding7")
     ]
+    var timer = Timer()
+    var counter = 0
+    
+    @objc func ChangeImage()
+    {
+        if counter < imgArr.count
+        {
+            let index = IndexPath.init(item: counter, section: 0)
+            self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+            counter = counter + 1
+        }
+        else
+        {
+            counter = 0
+            let index = IndexPath.init(item: counter, section: 0)
+            self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //Call API to get student's info
+        var url = "http://nova.us-east-2.elasticbeanstalk.com/api/GetStudent/"
+        
+        
+        /*
+        pageView.numberOfPages = imgArr.count
+        pageView.currentPage = 0
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.ChangeImage), userInfo: nil, repeats: true)
+        }
+        */
     }
 
     @IBOutlet weak var sliderCollectionView: UICollectionView!
     
-    @IBAction func pageView(_ sender: Any) {
-        
-    }
+    @IBOutlet weak var pageView: UIPageControl!
     
 }
-/*
 extension ProfilePageViewController:UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return imgArr.count
@@ -69,4 +105,3 @@ extension ProfilePageViewController: UICollectionViewDelegateFlowLayout{
     
     
 }
-*/
