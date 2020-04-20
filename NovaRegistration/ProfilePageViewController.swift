@@ -8,6 +8,22 @@
 
 import UIKit
 
+struct Student:Decodable
+{
+    let NNumber: Int
+    let FirstName: String
+    let LastName: String
+    let Sex: String
+    let Level: String
+    let RazersEdge: Bool?
+    let Athlete: Bool?
+}
+/*
+class datas: ObservableObject
+{
+    @Published var jsonData = []
+}
+*/
 class ProfilePageViewController: UIViewController {
 
     @IBOutlet weak var FirstNameText: UILabel!
@@ -52,17 +68,53 @@ class ProfilePageViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //Call API to get student's info
-        var url = "http://nova.us-east-2.elasticbeanstalk.com/api/GetStudent/"
-        
-        
-        /*
-        pageView.numberOfPages = imgArr.count
-        pageView.currentPage = 0
-        DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.ChangeImage), userInfo: nil, repeats: true)
+        var url = "http://nova.us-east-2.elasticbeanstalk.com/api/GetStudent/12345678"
+        let requestURL = URL(string: String(url))//1")
+        var request = URLRequest(url:requestURL!)
+        request.httpMethod = "GET"
+        //request.addValue("application/json", forHTTPHeaderField: "content/json")
+        //request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let task = URLSession.shared.dataTask(with: request)
+        {
+            
+            (data: Data?, response: URLResponse?, error: Error?) in
+            print("Entered here")
+            if (error != nil)
+            {
+                print("error\(String(describing:error))")
+                return
+            }
+            print("Got pass almost there")
+            //Converting data sent from server to our application
+            
+            do
+            {
+                print("Before")
+                print("Start")
+                
+                let Json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? Any
+                print(Json)
+                
+                
+                let student = try
+                    JSONDecoder().decode(Student.self, from: data!)
+                print(student)
+                DispatchQueue.main.async {
+                    self.FirstNameText.text = student.FirstName
+                    self.LastNameText.text = student.LastName
+                    self.SexText.text = student.Sex
+                    self.GradeText.text = student.Level
+                }
+
+            }
+            catch
+            {
+                print("couldn't do error\(String(describing:error))")
+            }
         }
-        */
+        task.resume()
     }
+        
 
     @IBOutlet weak var sliderCollectionView: UICollectionView!
     

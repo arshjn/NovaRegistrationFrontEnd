@@ -14,6 +14,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        /*
+        if #available(iOS 13, *) {
+          let appearance = UINavigationBarAppearance()
+
+          // title color
+          appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+          // large title color
+          appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+          // background color
+          appearance.backgroundColor = .blue
+
+          // bar button styling
+          let barButtonItemApperance = UIBarButtonItemAppearance()
+          barButtonItemApperance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+
+          appearance.backButtonAppearance = barButtonItemApperance
+
+          // set the navigation bar appearance to the color we have set above
+          UINavigationBar.appearance().standardAppearance = appearance
+
+          // when the navigation bar has a neighbouring scroll view item (eg: scroll view, table view etc)
+          // the "scrollEdgeAppearance" will be used
+          // by default, scrollEdgeAppearance will have a transparent background
+          UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
+
+        // the back icon color
+        UINavigationBar.appearance().tintColor = .white
+        */
         // Override point for customization after application launch.
         return true
     }

@@ -13,6 +13,7 @@ class BackRoomViewController: UIViewController {
     @IBOutlet weak var FloorSelector: UIPickerView!
     @IBOutlet weak var BuildingNameText: UILabel!
     @IBOutlet weak var Room101Button: UIButton!
+    @IBOutlet weak var BookRoomImage: UIImageView!
     
     var RoomSelected = false
     var FloorSelected = false
@@ -20,6 +21,17 @@ class BackRoomViewController: UIViewController {
     let RoomKey = ["LGW", "COM", "FAR", "FDR", "VET", "CLC", "MKH", "RHA", "RHC"]
     var FloorData: [Int] = [Int]()
     var keyIndex = 0
+    var RoomImages =
+    [
+        UIImage(named: "FloorPlan"),
+        UIImage(named: "FloorPlan2"),
+        UIImage(named: "FloorPlan3"),
+        UIImage(named: "FloorPlan4"),
+        UIImage(named: "FloorPlan5"),
+        UIImage(named: "FloorPlan6"),
+        UIImage(named: "FloorPlan7"),
+        UIImage(named: "FloorPlan8")
+    ]
     
     
     override func viewDidLoad() {
@@ -83,6 +95,43 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == RoomSelector
         {
+            print("Title:", RoomData[row])
+            if RoomData[row] == "Leo Goodwin Sr. Residence Hall"
+            {
+                BookRoomImage.image = RoomImages[row]
+            }
+            else if RoomData[row] == "The Commons"
+            {
+                BookRoomImage.image = RoomImages[row]
+            }
+            else if RoomData[row] == "Founders"
+            {
+                BookRoomImage.image = RoomImages[row]
+            }
+            else if RoomData[row] == "Farqhuar"
+            {
+                BookRoomImage.image = RoomImages[row]
+            }
+            else if RoomData[row] == "Vettel"
+            {
+                BookRoomImage.image = RoomImages[row]
+            }
+            else if RoomData[row] == "Cultural Living Center"
+            {
+                BookRoomImage.image = RoomImages[row]
+            }
+            else if RoomData[row] == "Mako Hall"
+            {
+                BookRoomImage.image = RoomImages[row]
+            }
+            else if RoomData[row] == "Rolling Hills A"
+            {
+                BookRoomImage.image = RoomImages[row]
+            }
+            else
+            {
+                print("Not here yet")
+            }
             BuildingNameText.text = RoomData[row]
             keyIndex = row
             RoomSelected = true
@@ -201,10 +250,12 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
         }
     }
 }
+/*
 class datas: ObservableObject
 {
     @Published var jsonData = []
 }
+ */
 struct Room: Decodable
 {
     let RoomNumber: Int
@@ -235,7 +286,9 @@ struct Room: Decodable
     }
  */
 }
+/*
 struct Result: Decodable
 {
     let results: [Room]
 }
+ */
