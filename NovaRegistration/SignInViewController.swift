@@ -199,8 +199,9 @@ class SignInViewController: UIViewController{
                     print("Can login")
                     DispatchQueue.main.async {
                         //Saving key to keychain
-                        let keyChain = Keychain()
-                        //let keyChain = KeyChain.savePassword(service: "NovaRoomRegistration" , account: "user", data: self.userNameTextField.text!)
+                        //let keyChain = Keychain()
+                        let keyChain = KeyChain.savePassword(service: "NovaRoomRegistration" , account: "user", data: self.userNameTextField.text!)
+                        print("Saved in keychain")
                         
                         //Clearing user and password text fields
                         self.userNameTextField.text?.removeAll()

@@ -14,6 +14,21 @@ class BackRoomViewController: UIViewController {
     @IBOutlet weak var BuildingNameText: UILabel!
     @IBOutlet weak var Room101Button: UIButton!
     @IBOutlet weak var BookRoomImage: UIImageView!
+    @IBOutlet weak var Room102Button: UIButton!
+    @IBOutlet weak var Room103Button: UIButton!
+    @IBOutlet weak var Room104Button: UIButton!
+    @IBOutlet weak var Room105Button: UIButton!
+    @IBOutlet weak var Room106Button: UIButton!
+    @IBOutlet weak var Room107Button: UIButton!
+    @IBOutlet weak var Room108Button: UIButton!
+    @IBOutlet weak var Room109Button: UIButton!
+    @IBOutlet weak var Room110Button: UIButton!
+    @IBOutlet weak var RoomButton111Button: UIButton!
+    
+    
+    
+    
+    
     
     var RoomSelected = false
     var FloorSelected = false
@@ -23,9 +38,9 @@ class BackRoomViewController: UIViewController {
     var keyIndex = 0
     var RoomImages =
     [
-        UIImage(named: "FloorPlan"),
-        UIImage(named: "FloorPlan2"),
-        UIImage(named: "FloorPlan3"),
+        UIImage(named: "FloorPlanRedone1"),
+        UIImage(named: "FloorPlanRedone2"),
+        UIImage(named: "FloorPlanRedone3"),
         UIImage(named: "FloorPlan4"),
         UIImage(named: "FloorPlan5"),
         UIImage(named: "FloorPlan6"),
@@ -99,26 +114,82 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             if RoomData[row] == "Leo Goodwin Sr. Residence Hall"
             {
                 BookRoomImage.image = RoomImages[row]
+                Room101Button.frame = CGRect(x:113 ,y:266 , width:30 , height:30)
+                Room102Button.frame = CGRect(x:119 ,y:337 , width:30 , height:30)
+                Room103Button.frame = CGRect(x:119 ,y:381 , width:30 , height:30)
+                Room104Button.frame = CGRect(x:119 ,y:425 , width:30 , height:30)
+                Room105Button.frame = CGRect(x:119 ,y:463 , width:30 , height:30)
+                Room106Button.frame = CGRect(x:119 ,y:510 , width:30 , height:30)
+                Room107Button.frame = CGRect(x:119 ,y:631 , width:30 , height:30)
+                Room108Button.frame = CGRect(x:192 ,y:637 , width:30 , height:30)
+                Room109Button.frame = CGRect(x:192 ,y:510 , width:30 , height:30)
+                Room110Button.frame = CGRect(x:192 ,y:336 , width:30 , height:30)
+                RoomButton111Button.frame = CGRect(x:192 ,y:294 , width:30 , height:30)
             }
             else if RoomData[row] == "The Commons"
             {
                 BookRoomImage.image = RoomImages[row]
+                Room101Button.frame = CGRect(x:97 ,y:187 , width:30 , height:30)
+                Room102Button.frame = CGRect(x:97 ,y:257 , width:30 , height:30)
+                Room103Button.frame = CGRect(x:97 ,y:313 , width:30 , height:30)
+                Room104Button.frame = CGRect(x:97 ,y:418 , width:30 , height:30)
+                Room105Button.frame = CGRect(x:97 ,y:472 , width:30 , height:30)
+                Room106Button.frame = CGRect(x:97 ,y:528 , width:30 , height:30)
+                Room107Button.frame = CGRect(x:97 ,y:589 , width:30 , height:30)
+                Room108Button.frame = CGRect(x:283 ,y:589 , width:30 , height:30)
+                Room109Button.frame = CGRect(x:270 ,y:455 , width:30 , height:30)
+                Room110Button.frame = CGRect(x:270 ,y:341 , width:30 , height:30)
+                RoomButton111Button.isHidden = true
             }
             else if RoomData[row] == "Founders"
             {
                 BookRoomImage.image = RoomImages[row]
+                Room101Button.frame = CGRect(x:150 ,y:191 , width:30 , height:30)
+                Room102Button.frame = CGRect(x:150 ,y:247 , width:30 , height:30)
+                Room103Button.frame = CGRect(x:150 ,y:306 , width:30 , height:30)
+                Room104Button.frame = CGRect(x:150 ,y:482 , width:30 , height:30)
+                Room105Button.frame = CGRect(x:150 ,y:537 , width:30 , height:30)
+                Room106Button.frame = CGRect(x:150 ,y:589 , width:30 , height:30)
+                Room107Button.frame = CGRect(x:245 ,y:589 , width:30 , height:30)
+                Room108Button.frame = CGRect(x:245 ,y:537 , width:30 , height:30)
+                Room109Button.frame = CGRect(x:245 ,y:482 , width:30 , height:30)
+                Room110Button.frame = CGRect(x:245 ,y:306 , width:30 , height:30)
+                Room107Button.frame = CGRect(x:245 ,y:247 , width:30 , height:30)
             }
             else if RoomData[row] == "Farqhuar"
             {
                 BookRoomImage.image = RoomImages[row]
+                
             }
             else if RoomData[row] == "Vettel"
             {
                 BookRoomImage.image = RoomImages[row]
+                Room101Button.frame = CGRect(x:71 ,y:158 , width:30 , height:30)
+                Room102Button.frame = CGRect(x:71 ,y:247 , width:30 , height:30)
+                Room103Button.frame = CGRect(x:71 ,y:322 , width:30 , height:30)
+                Room104Button.frame = CGRect(x:71 ,y:406 , width:30 , height:30)
+                Room105Button.frame = CGRect(x:117 ,y:412 , width:30 , height:30)
+                Room106Button.frame = CGRect(x:192 ,y:631 , width:30 , height:30)
+                Room107Button.frame = CGRect(x:236 ,y:631 , width:30 , height:30)
+                Room108Button.frame = CGRect(x:274 ,y:631 , width:30 , height:30)
+                Room109Button.frame = CGRect(x:319 ,y:631 , width:30 , height:30)
+                Room110Button.isHidden = true
+                RoomButton111Button.isHidden = true
             }
             else if RoomData[row] == "Cultural Living Center"
             {
                 BookRoomImage.image = RoomImages[row]
+                Room101Button.frame = CGRect(x:123 ,y:159 , width:30 , height:30)
+                Room102Button.frame = CGRect(x:117 ,y:244 , width:30 , height:30)
+                Room103Button.frame = CGRect(x:117 ,y:383 , width:30 , height:30)
+                Room104Button.frame = CGRect(x:123 ,y:528 , width:30 , height:30)
+                Room105Button.frame = CGRect(x:117 ,y:614 , width:30 , height:30)
+                Room106Button.frame = CGRect(x:274 ,y:614 , width:30 , height:30)
+                Room107Button.frame = CGRect(x:274 ,y:501 , width:30 , height:30)
+                Room108Button.frame = CGRect(x:274 ,y:414 , width:30 , height:30)
+                Room109Button.frame = CGRect(x:274 ,y:329 , width:30 , height:30)
+                Room110Button.frame = CGRect(x:274 ,y:237 , width:30 , height:30)
+                RoomButton111Button.frame = CGRect(x:274 ,y:159 , width:30 , height:30)
             }
             else if RoomData[row] == "Mako Hall"
             {
@@ -127,6 +198,17 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             else if RoomData[row] == "Rolling Hills A"
             {
                 BookRoomImage.image = RoomImages[row]
+                Room101Button.frame = CGRect(x:81 ,y:208 , width:30 , height:30)
+                Room102Button.frame = CGRect(x:81 ,y:287 , width:30 , height:30)
+                Room103Button.frame = CGRect(x:81 ,y:352 , width:30 , height:30)
+                Room104Button.frame = CGRect(x:81 ,y:433 , width:30 , height:30)
+                Room105Button.frame = CGRect(x:230 ,y:623 , width:30 , height:30)
+                Room106Button.frame = CGRect(x:311 ,y:545 , width:30 , height:30)
+                Room107Button.frame = CGRect(x:311 ,y:492 , width:30 , height:30)
+                Room108Button.frame = CGRect(x:297 ,y:424 , width:30 , height:30)
+                Room109Button.frame = CGRect(x:311 ,y:227 , width:30 , height:30)
+                Room110Button.frame = CGRect(x:297 ,y:255 , width:30 , height:30)
+                RoomButton111Button.frame = CGRect(x:311 ,y:185 , width:30 , height:30)
             }
             else
             {

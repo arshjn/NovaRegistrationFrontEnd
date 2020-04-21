@@ -34,7 +34,7 @@ class ProfilePageViewController: UIViewController {
     @IBAction func BackButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+    let keyChain = Keychain()
     
     var imgArr =
     [
@@ -66,9 +66,12 @@ class ProfilePageViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         //Call API to get student's info
-        var url = "http://nova.us-east-2.elasticbeanstalk.com/api/GetStudent/12345678"
+        let username = KeyChain.loadPassword(service: "NovaRoomRegistration", account: "user")
+        print("username:", username)
+        var url = "http://nova.us-east-2.elasticbeanstalk.com/api/GetStudent/"+username!
         let requestURL = URL(string: String(url))//1")
         var request = URLRequest(url:requestURL!)
         request.httpMethod = "GET"
@@ -100,10 +103,10 @@ class ProfilePageViewController: UIViewController {
                     JSONDecoder().decode(Student.self, from: data!)
                 print(student)
                 DispatchQueue.main.async {
-                    self.FirstNameText.text = student.FirstName
-                    self.LastNameText.text = student.LastName
-                    self.SexText.text = student.Sex
-                    self.GradeText.text = student.Level
+                    self.FirstNameText.text = self.FirstNameText.text! + student.FirstName
+                    self.LastNameText.text = self.LastNameText.text! + student.LastName
+                    self.SexText.text = self.SexText.text! + student.Sex
+                    self.GradeText.text = self.GradeText.text! + student.Level
                 }
 
             }

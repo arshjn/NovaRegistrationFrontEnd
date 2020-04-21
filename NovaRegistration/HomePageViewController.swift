@@ -25,6 +25,7 @@ class HomePageViewController: UIViewController {
     
     @IBAction func SignOutButtonPressed(_ sender: Any) {
         print("Sign out button pressed")
+        let keyChain = KeyChain.removePassword(service: "NovaRoomRegistration", account: "user")
         self.dismiss(animated: true, completion: nil)
         /*
         let SignInViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
