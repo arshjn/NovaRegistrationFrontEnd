@@ -162,8 +162,8 @@ class SignInViewController: UIViewController{
         //Formatting the HTTP Request
         //var requestURL = URLComponents(string: "http://nova.us-east-2.elasticbeanstalk.com/api/")
         //requestURL.queryItems[(NNumber: username, Pass: password)]
-        //var url = "http://nova.us-east-2.elasticbeanstalk.com/api/User?NNumber="+username!+"&Pass="+password!;
-        var url = "http://nova.us-east-2.elasticbeanstalk.com/api/Login/"+username!+"/"+password!
+        var url = "http://nova.us-east-2.elasticbeanstalk.com/api/Login?NNumber="+username!+"&Pass="+password!;
+        //var url = "http://nova.us-east-2.elasticbeanstalk.com/api/Login/"+username!+"/"+password!
         print("url:", url)
         let requestURL = URL(string: String(url))//1")
         //requestURL += username

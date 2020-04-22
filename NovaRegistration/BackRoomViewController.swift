@@ -41,11 +41,11 @@ class BackRoomViewController: UIViewController {
         UIImage(named: "FloorPlanRedone1"),
         UIImage(named: "FloorPlanRedone2"),
         UIImage(named: "FloorPlanRedone3"),
-        UIImage(named: "FloorPlan4"),
-        UIImage(named: "FloorPlan5"),
-        UIImage(named: "FloorPlan6"),
-        UIImage(named: "FloorPlan7"),
-        UIImage(named: "FloorPlan8")
+        UIImage(named: "FloorPlan8-1"),
+        UIImage(named: "FloorRedone5"),
+        UIImage(named: "Cultural_Living_Center"),
+        UIImage(named: "Mako_Hall"),
+        UIImage(named: "Rolling_Hills_A")
     ]
     
     
@@ -71,9 +71,21 @@ class BackRoomViewController: UIViewController {
         "Rolling Hills C"
         ]
         
-        FloorData = [1,2,3,4]
+        FloorData = [1,2,3]
         RoomSelector.selectRow(0, inComponent: 0, animated: true)
         RoomSelector.selectRow(0, inComponent: 0, animated: true)
+        
+        Room101Button.frame = CGRect(x:71 ,y:158 , width:30 , height:30)
+        Room102Button.frame = CGRect(x:71 ,y:247 , width:30 , height:30)
+        Room103Button.frame = CGRect(x:71 ,y:322 , width:30 , height:30)
+        Room104Button.frame = CGRect(x:71 ,y:406 , width:30 , height:30)
+        Room105Button.frame = CGRect(x:117 ,y:412 , width:30 , height:30)
+        Room106Button.frame = CGRect(x:192 ,y:631 , width:30 , height:30)
+        Room107Button.frame = CGRect(x:236 ,y:631 , width:30 , height:30)
+        Room108Button.frame = CGRect(x:274 ,y:631 , width:30 , height:30)
+        Room109Button.frame = CGRect(x:319 ,y:631 , width:30 , height:30)
+        Room110Button.isHidden = true
+        RoomButton111Button.isHidden = true
         
         // Do any additional setup after loading the view.
     }
@@ -114,6 +126,18 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             if RoomData[row] == "Leo Goodwin Sr. Residence Hall"
             {
                 BookRoomImage.image = RoomImages[row]
+                Room101Button.setTitle("101", for: .normal)
+                Room102Button.setTitle("102", for: .normal)
+                Room103Button.setTitle("103", for: .normal)
+                Room104Button.setTitle("104", for: .normal)
+                Room105Button.setTitle("105", for: .normal)
+                Room106Button.setTitle("106", for: .normal)
+                Room107Button.setTitle("107", for: .normal)
+                Room108Button.setTitle("108", for: .normal)
+                Room109Button.setTitle("109", for: .normal)
+                Room110Button.setTitle("110", for: .normal)
+                RoomButton111Button.setTitle("111", for: .normal)
+                
                 Room101Button.frame = CGRect(x:113 ,y:266 , width:30 , height:30)
                 Room102Button.frame = CGRect(x:119 ,y:337 , width:30 , height:30)
                 Room103Button.frame = CGRect(x:119 ,y:381 , width:30 , height:30)
@@ -124,11 +148,24 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
                 Room108Button.frame = CGRect(x:192 ,y:637 , width:30 , height:30)
                 Room109Button.frame = CGRect(x:192 ,y:510 , width:30 , height:30)
                 Room110Button.frame = CGRect(x:192 ,y:336 , width:30 , height:30)
-                RoomButton111Button.frame = CGRect(x:192 ,y:294 , width:30 , height:30)
+                //RoomButton111Button.frame = CGRect(x:192 ,y:294 , width:30 , height:30)
+                RoomButton111Button.isHidden = true
+                Room104Button.isHidden = false
             }
             else if RoomData[row] == "The Commons"
             {
                 BookRoomImage.image = RoomImages[row]
+                Room101Button.setTitle("101", for: .normal)
+                Room102Button.setTitle("102", for: .normal)
+                Room103Button.setTitle("103", for: .normal)
+                Room104Button.setTitle("104", for: .normal)
+                Room105Button.setTitle("105", for: .normal)
+                Room106Button.setTitle("106", for: .normal)
+                Room107Button.setTitle("107", for: .normal)
+                Room108Button.setTitle("108", for: .normal)
+                Room109Button.setTitle("109", for: .normal)
+                Room110Button.setTitle("110", for: .normal)
+                RoomButton111Button.setTitle("111", for: .normal)
                 Room101Button.frame = CGRect(x:97 ,y:187 , width:30 , height:30)
                 Room102Button.frame = CGRect(x:97 ,y:257 , width:30 , height:30)
                 Room103Button.frame = CGRect(x:97 ,y:313 , width:30 , height:30)
@@ -144,6 +181,17 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             else if RoomData[row] == "Founders"
             {
                 BookRoomImage.image = RoomImages[row]
+                Room101Button.setTitle("101", for: .normal)
+                Room102Button.setTitle("102", for: .normal)
+                Room103Button.setTitle("103", for: .normal)
+                Room104Button.setTitle("104", for: .normal)
+                Room105Button.setTitle("105", for: .normal)
+                Room106Button.setTitle("106", for: .normal)
+                Room107Button.setTitle("107", for: .normal)
+                Room108Button.setTitle("108", for: .normal)
+                Room109Button.setTitle("109", for: .normal)
+                Room110Button.setTitle("110", for: .normal)
+                RoomButton111Button.setTitle("111", for: .normal)
                 Room101Button.frame = CGRect(x:150 ,y:191 , width:30 , height:30)
                 Room102Button.frame = CGRect(x:150 ,y:247 , width:30 , height:30)
                 Room103Button.frame = CGRect(x:150 ,y:306 , width:30 , height:30)
@@ -159,11 +207,41 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             else if RoomData[row] == "Farqhuar"
             {
                 BookRoomImage.image = RoomImages[row]
+                Room101Button.setTitle("101", for: .normal)
+                Room102Button.setTitle("102", for: .normal)
+                Room103Button.setTitle("103", for: .normal)
+                Room104Button.setTitle("104", for: .normal)
+                Room105Button.setTitle("105", for: .normal)
+                Room106Button.setTitle("106", for: .normal)
+                Room107Button.setTitle("107", for: .normal)
+                Room108Button.setTitle("108", for: .normal)
+                Room109Button.setTitle("109", for: .normal)
+                Room110Button.setTitle("110", for: .normal)
+                Room101Button.frame = CGRect(x:68 ,y:168 , width:30 , height:30)
+                Room102Button.frame = CGRect(x:68 ,y:233 , width:30 , height:30)
+                Room103Button.frame = CGRect(x:68 ,y:329 , width:30 , height:30)
+                Room104Button.frame = CGRect(x:68 ,y:399 , width:30 , height:30)
+                Room105Button.frame = CGRect(x:181 ,y:631 , width:30 , height:30)
+                Room106Button.frame = CGRect(x:230 ,y:631 , width:30 , height:30)
+                Room107Button.frame = CGRect(x:276 ,y:631 , width:30 , height:30)
+                Room108Button.frame = CGRect(x:314 ,y:631 , width:30 , height:30)
+                Room109Button.frame = CGRect(x:314 ,y:541 , width:30 , height:30)
                 
             }
             else if RoomData[row] == "Vettel"
             {
                 BookRoomImage.image = RoomImages[row]
+                Room101Button.setTitle("101", for: .normal)
+                Room102Button.setTitle("102", for: .normal)
+                Room103Button.setTitle("103", for: .normal)
+                Room104Button.setTitle("104", for: .normal)
+                Room105Button.setTitle("105", for: .normal)
+                Room106Button.setTitle("106", for: .normal)
+                Room107Button.setTitle("107", for: .normal)
+                Room108Button.setTitle("108", for: .normal)
+                Room109Button.setTitle("109", for: .normal)
+                Room110Button.setTitle("110", for: .normal)
+                RoomButton111Button.setTitle("111", for: .normal)
                 Room101Button.frame = CGRect(x:71 ,y:158 , width:30 , height:30)
                 Room102Button.frame = CGRect(x:71 ,y:247 , width:30 , height:30)
                 Room103Button.frame = CGRect(x:71 ,y:322 , width:30 , height:30)
@@ -179,6 +257,17 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             else if RoomData[row] == "Cultural Living Center"
             {
                 BookRoomImage.image = RoomImages[row]
+                Room101Button.setTitle("101", for: .normal)
+                Room102Button.setTitle("102", for: .normal)
+                Room103Button.setTitle("103", for: .normal)
+                Room104Button.setTitle("104", for: .normal)
+                Room105Button.setTitle("105", for: .normal)
+                Room106Button.setTitle("106", for: .normal)
+                Room107Button.setTitle("107", for: .normal)
+                Room108Button.setTitle("108", for: .normal)
+                Room109Button.setTitle("109", for: .normal)
+                Room110Button.setTitle("110", for: .normal)
+                RoomButton111Button.setTitle("111", for: .normal)
                 Room101Button.frame = CGRect(x:123 ,y:159 , width:30 , height:30)
                 Room102Button.frame = CGRect(x:117 ,y:244 , width:30 , height:30)
                 Room103Button.frame = CGRect(x:117 ,y:383 , width:30 , height:30)
@@ -194,10 +283,42 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             else if RoomData[row] == "Mako Hall"
             {
                 BookRoomImage.image = RoomImages[row]
+                Room101Button.setTitle("101", for: .normal)
+                Room102Button.setTitle("102", for: .normal)
+                Room103Button.setTitle("103", for: .normal)
+                Room104Button.setTitle("104", for: .normal)
+                Room105Button.setTitle("105", for: .normal)
+                Room106Button.setTitle("106", for: .normal)
+                Room107Button.setTitle("107", for: .normal)
+                Room108Button.setTitle("108", for: .normal)
+                Room109Button.setTitle("109", for: .normal)
+                Room110Button.setTitle("110", for: .normal)
+                Room101Button.frame = CGRect(x:68 ,y:264 , width:30 , height:30)
+                Room102Button.frame = CGRect(x:68 ,y:314 , width:30 , height:30)
+                Room103Button.frame = CGRect(x:68 ,y:379 , width:30 , height:30)
+                Room104Button.frame = CGRect(x:68 ,y:439 , width:30 , height:30)
+                Room105Button.frame = CGRect(x:68 ,y:519 , width:30 , height:30)
+                Room106Button.frame = CGRect(x:125 ,y:455 , width:30 , height:30)
+                Room107Button.frame = CGRect(x:125 ,y:379 , width:30 , height:30)
+                Room108Button.frame = CGRect(x:125 ,y:314 , width:30 , height:30)
+                Room109Button.frame = CGRect(x:181 ,y:169 , width:30 , height:30)
+                Room110Button.frame = CGRect(x:236 ,y:169 , width:30 , height:30)
+                RoomButton111Button.frame = CGRect(x:283 ,y:169 , width:30 , height:30)
             }
             else if RoomData[row] == "Rolling Hills A"
             {
                 BookRoomImage.image = RoomImages[row]
+                Room101Button.setTitle("101", for: .normal)
+                Room102Button.setTitle("102", for: .normal)
+                Room103Button.setTitle("103", for: .normal)
+                Room104Button.setTitle("104", for: .normal)
+                Room105Button.setTitle("105", for: .normal)
+                Room106Button.setTitle("106", for: .normal)
+                Room107Button.setTitle("107", for: .normal)
+                Room108Button.setTitle("108", for: .normal)
+                Room109Button.setTitle("109", for: .normal)
+                Room110Button.setTitle("110", for: .normal)
+                RoomButton111Button.setTitle("111", for: .normal)
                 Room101Button.frame = CGRect(x:81 ,y:208 , width:30 , height:30)
                 Room102Button.frame = CGRect(x:81 ,y:287 , width:30 , height:30)
                 Room103Button.frame = CGRect(x:81 ,y:352 , width:30 , height:30)
@@ -213,6 +334,7 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             else
             {
                 print("Not here yet")
+                
             }
             BuildingNameText.text = RoomData[row]
             keyIndex = row
@@ -221,6 +343,17 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
         else
         {
             FloorSelected = true
+            Room101Button.setTitle( (String(FloorData[row]) + "01"), for: .normal)
+            Room102Button.setTitle( (String(FloorData[row]) + "02"), for: .normal)
+            Room103Button.setTitle( (String(FloorData[row]) + "03"), for: .normal)
+            Room104Button.setTitle( (String(FloorData[row]) + "04"), for: .normal)
+            Room105Button.setTitle( (String(FloorData[row]) + "05"), for: .normal)
+            Room106Button.setTitle( (String(FloorData[row]) + "06"), for: .normal)
+            Room107Button.setTitle( (String(FloorData[row]) + "07"), for: .normal)
+            Room108Button.setTitle( (String(FloorData[row]) + "08"), for: .normal)
+            Room109Button.setTitle( (String(FloorData[row]) + "09"), for: .normal)
+            Room110Button.setTitle( (String(FloorData[row]) + "10"), for: .normal)
+            RoomButton111Button.setTitle( (String(FloorData[row]) + "11"), for: .normal)
         }
         if RoomSelected == true && FloorSelected == true
         {
@@ -228,7 +361,7 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             print("key: ", RoomKey[keyIndex])
             //Call API
             //var APIString = "http://nova.us-east-2.elasticbeanstalk.com/api/Project?BuildingName=" + RoomKey[keyIndex]+"&FloorNumber="+String(FloorData[row])
-            var APIString = "http://nova.us-east-2.elasticbeanstalk.com/api/Project?BuildingName=COM&FloorNumber=1"
+            var APIString = "http://nova.us-east-2.elasticbeanstalk.com/api/GetAvailableRoomsByFloor?BuildingName=COM&FloorNumber=2"
             print("API call: ", APIString)
             let requestURL = URL(string: String(APIString))//1")
             var request = URLRequest(url:requestURL!)
@@ -237,8 +370,6 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             {
                 
                 (data: Data?, response: URLResponse?, error: Error?) in
-                //self.removeActivityIndicator(activityIndicator:myActivityIndicator)
-                
                 print("Entered here")
                 if (error != nil)
                 {
@@ -254,16 +385,24 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
                     print("Start")
                     let rooms = try
                         JSONDecoder().decode([Room].self, from: data!)
+                    /*
+                    print(rooms)
                     print("RN", rooms[0].RoomNumber)//  .RoomNumber)
                     //print("title:", self.Room101Button.title(for: <#T##UIControl.State#>))
-                    if 101 == rooms[0].RoomNumber
+                    for room in rooms
+                    {
+                        print("Iteration:", room)
+                        //if room.RoomNumber == ;
+                    }
+                    if 201 == rooms[0].RoomNumber
                     {
                         print("Here")
                         DispatchQueue.main.async {
-                            self.Room101Button.backgroundColor = UIColor.red
+                            self.Room101Button.backgroundColor = UIColor.green
                         }
                         
                     }
+                    */
                     //guard let Json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any] else { print(type(of: Json)); return }
                     //let Json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? Any
                     print("Before")
@@ -337,15 +476,15 @@ class datas: ObservableObject
 {
     @Published var jsonData = []
 }
- */
+*/
 struct Room: Decodable
 {
     let RoomNumber: Int
     var Price: Int
-    var Student1: Int?
-    var Student2: Int?
-    var Student3: Int?
-    var Student4: Int?
+    var Occupant1: Int?
+    var Occupant2: Int?
+    var Occupant3: Int?
+    var Occupant4: Int?
     
     /*
     init(json: Any)
@@ -366,11 +505,10 @@ struct Room: Decodable
         Student4 = json["Occupant4"] as? Int ?? -1
         */
     }
- */
+    */
 }
-/*
 struct Result: Decodable
 {
     let results: [Room]
 }
- */
+ 
