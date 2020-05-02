@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FF2B1B1A2446C38600730A14 /* BackRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2B1B192446C38600730A14 /* BackRoomViewController.swift */; };
-		FF33BAF02449A8490025CF3A /* DataViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF33BAEF2449A8490025CF3A /* DataViewCollectionCell.swift */; };
 		FF33BAF2244BF6560025CF3A /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF33BAF1244BF6560025CF3A /* Keychain.swift */; };
 		FF722AEA2433752E00BC9BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF722AE92433752E00BC9BEA /* AppDelegate.swift */; };
 		FF722AEC2433752E00BC9BEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF722AEB2433752E00BC9BEA /* SceneDelegate.swift */; };
@@ -18,12 +17,13 @@
 		FF722AF62433753100BC9BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF722AF42433753100BC9BEA /* LaunchScreen.storyboard */; };
 		FF722AFE2433F70700BC9BEA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF722AFD2433F70600BC9BEA /* SignInViewController.swift */; };
 		FF722B002433FDC800BC9BEA /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF722AFF2433FDC800BC9BEA /* HomePageViewController.swift */; };
+		FFAA0BFB24509FBB009BAD39 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAA0BFA24509FBB009BAD39 /* ReviewViewController.swift */; };
+		FFAA0BFD24556CA0009BAD39 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAA0BFC24556CA0009BAD39 /* DataModels.swift */; };
 		FFE43B4E2445765800F52062 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE43B4D2445765800F52062 /* ProfilePageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FF2B1B192446C38600730A14 /* BackRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackRoomViewController.swift; sourceTree = "<group>"; };
-		FF33BAEF2449A8490025CF3A /* DataViewCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewCollectionCell.swift; sourceTree = "<group>"; };
 		FF33BAF1244BF6560025CF3A /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		FF722AE62433752E00BC9BEA /* NovaRegistration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NovaRegistration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF722AE92433752E00BC9BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +35,8 @@
 		FF722AF72433753100BC9BEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF722AFD2433F70600BC9BEA /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FF722AFF2433FDC800BC9BEA /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		FFAA0BFA24509FBB009BAD39 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		FFAA0BFC24556CA0009BAD39 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		FFE43B4D2445765800F52062 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +74,7 @@
 				FF722AEB2433752E00BC9BEA /* SceneDelegate.swift */,
 				FF722AED2433752E00BC9BEA /* ViewController.swift */,
 				FF722AEF2433752E00BC9BEA /* Main.storyboard */,
-				FF33BAEF2449A8490025CF3A /* DataViewCollectionCell.swift */,
+				FFAA0BFA24509FBB009BAD39 /* ReviewViewController.swift */,
 				FF2B1B192446C38600730A14 /* BackRoomViewController.swift */,
 				FFE43B4D2445765800F52062 /* ProfilePageViewController.swift */,
 				FF722AF22433753100BC9BEA /* Assets.xcassets */,
@@ -80,6 +82,7 @@
 				FF722AF72433753100BC9BEA /* Info.plist */,
 				FF722AFD2433F70600BC9BEA /* SignInViewController.swift */,
 				FF33BAF1244BF6560025CF3A /* Keychain.swift */,
+				FFAA0BFC24556CA0009BAD39 /* DataModels.swift */,
 				FF722AFF2433FDC800BC9BEA /* HomePageViewController.swift */,
 			);
 			path = NovaRegistration;
@@ -156,8 +159,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF33BAF02449A8490025CF3A /* DataViewCollectionCell.swift in Sources */,
 				FF722AFE2433F70700BC9BEA /* SignInViewController.swift in Sources */,
+				FFAA0BFD24556CA0009BAD39 /* DataModels.swift in Sources */,
+				FFAA0BFB24509FBB009BAD39 /* ReviewViewController.swift in Sources */,
 				FFE43B4E2445765800F52062 /* ProfilePageViewController.swift in Sources */,
 				FF722AEE2433752E00BC9BEA /* ViewController.swift in Sources */,
 				FF722AEA2433752E00BC9BEA /* AppDelegate.swift in Sources */,

@@ -9,6 +9,7 @@
 import UIKit
 
 class BackRoomViewController: UIViewController {
+    //View Controller Outlets
     @IBOutlet weak var RoomSelector: UIPickerView!
     @IBOutlet weak var FloorSelector: UIPickerView!
     @IBOutlet weak var BuildingNameText: UILabel!
@@ -25,77 +26,9 @@ class BackRoomViewController: UIViewController {
     @IBOutlet weak var Room110Button: UIButton!
     @IBOutlet weak var RoomButton111Button: UIButton!
     
-    @IBAction func Button101Pressed(_ sender: Any) {
-        print("101Pressed", Room101Button.title(for: .normal))
-        if Room101Button.backgroundColor == UIColor.green{
-            print("Book Room")
-        }
-        
-    }
-    @IBAction func Button102Pressed(_ sender: Any) {
-        print("102Pressed", Room102Button.title(for: .normal))
-        if Room102Button.backgroundColor == UIColor.green{
-            print("Book Room")
-        }
-    }
-    @IBAction func Button103Pressed(_ sender: Any) {
-        print("103Pressed", Room103Button.title(for: .normal))
-        if Room103Button.backgroundColor == UIColor.green{
-            print("Book Room")
-        }
-    }
-    @IBAction func Button104Pressed(_ sender: Any) {
-        print("104Pressed", Room104Button.title(for: .normal))
-        if Room104Button.backgroundColor == UIColor.green{
-            print("Book Room")
-        }
-    }
-    @IBAction func Button105Pressed(_ sender: Any) {
-        print("105Pressed", Room105Button.title(for: .normal))
-        if Room105Button.backgroundColor == UIColor.green{
-            print("Book Room")
-        }
-    }
-    @IBAction func Button106Pressed(_ sender: Any) {
-        print("106Pressed", Room106Button.title(for: .normal))
-        if Room106Button.backgroundColor == UIColor.green{
-            print("Book Room")
-        }
-    }
-    @IBAction func Button107Pressed(_ sender: Any) {
-        print("107Pressed", Room107Button.title(for: .normal))
-        if Room107Button.backgroundColor == UIColor.green{
-            print("Book Room")
-        }
-    }
-    @IBAction func Button108Pressed(_ sender: Any) {
-        print("108Pressed", Room108Button.title(for: .normal))
-        if Room108Button.backgroundColor == UIColor.green{
-            print("Book Room")
-        }
-    }
-    @IBAction func Button109Pressed(_ sender: Any) {
-        print("109Pressed", Room109Button.title(for: .normal))
-        if Room109Button.backgroundColor == UIColor.green{
-            print("Book Room")
-        }
-    }
-    @IBAction func Button110Pressed(_ sender: Any) {
-        print("110Pressed", Room110Button.title(for: .normal))
-        if Room110Button.backgroundColor == UIColor.green{
-            print("Book Room")
-        }
-    }
-    @IBAction func Button111Pressed(_ sender: Any) {
-        print("111Pressed", RoomButton111Button.title(for: .normal))
-        if RoomButton111Button.backgroundColor == UIColor.green{
-            print("Book Room")
-        }
-    }
-    
-    
-    
-    
+    var selectedBuilding = ""
+    var selectedFloor = ""
+    let username = Keychain.loadPassword(service: "NovaRoomRegistration", account: "user")
     
     var RoomSelected = false
     var FloorSelected = false
@@ -115,6 +48,111 @@ class BackRoomViewController: UIViewController {
         UIImage(named: "Rolling_Hills_A")
     ]
     
+    func BookRoom(roomButton: String)
+    {
+        print("Book room function")
+        let url = "http://nova.us-east-2.elasticbeanstalk.com/api/ReserveRoom?NNumber="+username!+"&BuildingName="+selectedBuilding+"&RoomNum="+selectedFloor+roomButton
+            print("Book url", url)
+            let requestURL = URL(string: String(url))//1")
+            var request = URLRequest(url:requestURL!)
+            request.httpMethod = "POST"
+            let task = URLSession.shared.dataTask(with: request)
+            {
+                
+                (data: Data?, response: URLResponse?, error: Error?) in
+                if (error != nil)
+                {
+                    print("error\(String(describing:error))")
+                    return
+                }
+                //Converting data sent from server to our application
+                
+                do
+                {
+                    let Json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? Bool
+                    if Json == true
+                    {
+                        DispatchQueue.main.async {
+                            let ReviewViewController = self.storyboard?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
+                        
+                            self.present(ReviewViewController, animated: true)
+                        }
+                    }
+
+                }
+                catch
+                {
+                    print("couldn't do error\(String(describing:error))")
+                }
+            }
+        task.resume()
+    }
+    @IBAction func Button101Pressed(_ sender: Any) {
+        //print("101Pressed", Room101Button.title(for: .normal))
+        if Room101Button.backgroundColor == UIColor.green{
+            BookRoom(roomButton: "01")
+        }
+    }
+    @IBAction func Button102Pressed(_ sender: Any) {
+        print("102Pressed", Room102Button.title(for: .normal))
+        if Room102Button.backgroundColor == UIColor.green{
+            BookRoom(roomButton: "02")
+        }
+    }
+    @IBAction func Button103Pressed(_ sender: Any) {
+        print("103Pressed", Room103Button.title(for: .normal))
+        if Room103Button.backgroundColor == UIColor.green{
+            BookRoom(roomButton: "03")
+        }
+    }
+    @IBAction func Button104Pressed(_ sender: Any) {
+        print("104Pressed", Room104Button.title(for: .normal))
+        if Room104Button.backgroundColor == UIColor.green{
+            BookRoom(roomButton: "04")
+        }
+    }
+    @IBAction func Button105Pressed(_ sender: Any) {
+        print("105Pressed", Room105Button.title(for: .normal))
+        if Room105Button.backgroundColor == UIColor.green{
+            BookRoom(roomButton: "05")
+        }
+    }
+    @IBAction func Button106Pressed(_ sender: Any) {
+        print("106Pressed", Room106Button.title(for: .normal))
+        if Room106Button.backgroundColor == UIColor.green{
+            BookRoom(roomButton: "06")
+        }
+    }
+    @IBAction func Button107Pressed(_ sender: Any) {
+        print("107Pressed", Room107Button.title(for: .normal))
+        if Room107Button.backgroundColor == UIColor.green{
+            BookRoom(roomButton: "07")
+        }
+    }
+    @IBAction func Button108Pressed(_ sender: Any) {
+        print("108Pressed", Room108Button.title(for: .normal))
+        if Room108Button.backgroundColor == UIColor.green{
+            BookRoom(roomButton: "08")
+        }
+    }
+    @IBAction func Button109Pressed(_ sender: Any) {
+        print("109Pressed", Room109Button.title(for: .normal))
+        if Room109Button.backgroundColor == UIColor.green{
+            BookRoom(roomButton: "09")
+        }
+    }
+    @IBAction func Button110Pressed(_ sender: Any) {
+        print("110Pressed", Room110Button.title(for: .normal))
+        if Room110Button.backgroundColor == UIColor.green{
+            BookRoom(roomButton: "10")
+        }
+    }
+    @IBAction func Button111Pressed(_ sender: Any) {
+        print("111Pressed", RoomButton111Button.title(for: .normal))
+        if RoomButton111Button.backgroundColor == UIColor.green{
+            BookRoom(roomButton: "11")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,9 +181,6 @@ class BackRoomViewController: UIViewController {
         RoomButton111Button.layer.cornerRadius = 15
         BookRoomImage.image = RoomImages[0]
         
-        
-        
-        
         self.RoomSelector.delegate = self
         self.RoomSelector.dataSource = self
         self.FloorSelector.delegate = self
@@ -161,7 +196,18 @@ class BackRoomViewController: UIViewController {
         "Rolling Hills A",
         "Rolling Hills C"
         ]
-        
+        Room101Button.setTitle("101", for: .normal)
+        Room102Button.setTitle("102", for: .normal)
+        Room103Button.setTitle("103", for: .normal)
+        Room104Button.setTitle("104", for: .normal)
+        Room105Button.setTitle("105", for: .normal)
+        Room106Button.setTitle("106", for: .normal)
+        Room107Button.setTitle("107", for: .normal)
+        Room108Button.setTitle("108", for: .normal)
+        Room109Button.setTitle("109", for: .normal)
+        Room110Button.setTitle("110", for: .normal)
+        RoomButton111Button.setTitle("111", for: .normal )
+
         FloorData = [1,2,3]
         RoomSelector.selectRow(0, inComponent: 0, animated: true)
         RoomSelector.selectRow(0, inComponent: 0, animated: true)
@@ -194,6 +240,8 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
         }
         else
         {
+            //print("floor:", FloorData[row])
+            selectedFloor = String(FloorData[row])
             return String(FloorData[row])
         }
         
@@ -204,7 +252,7 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             print("Title:", RoomData[row])
             if RoomData[row] == "Leo Goodwin Sr. Residence Hall"
             {
-                print("Entered goodwin")
+                //print("Entered goodwin")
                 BookRoomImage.image = RoomImages[row]
                 
                 
@@ -221,33 +269,11 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
                 RoomButton111Button.frame = CGRect(x:192 ,y:294 , width:30 , height:30)
                 RoomButton111Button.isHidden = false
                 Room104Button.isHidden = false
-                
-                Room101Button.setTitle("101", for: .normal)
-                Room102Button.setTitle("102", for: .normal)
-                Room103Button.setTitle("103", for: .normal)
-                Room104Button.setTitle("104", for: .normal)
-                Room105Button.setTitle("105", for: .normal)
-                Room106Button.setTitle("106", for: .normal)
-                Room107Button.setTitle("107", for: .normal)
-                Room108Button.setTitle("108", for: .normal)
-                Room109Button.setTitle("109", for: .normal)
-                Room110Button.setTitle("110", for: .normal)
-                RoomButton111Button.setTitle("111", for: .normal)
             }
             else if RoomData[row] == "The Commons"
             {
                 BookRoomImage.image = RoomImages[row]
-                Room101Button.setTitle("101", for: .normal)
-                Room102Button.setTitle("102", for: .normal)
-                Room103Button.setTitle("103", for: .normal)
-                Room104Button.setTitle("104", for: .normal)
-                Room105Button.setTitle("105", for: .normal)
-                Room106Button.setTitle("106", for: .normal)
-                Room107Button.setTitle("107", for: .normal)
-                Room108Button.setTitle("108", for: .normal)
-                Room109Button.setTitle("109", for: .normal)
-                Room110Button.setTitle("110", for: .normal)
-                RoomButton111Button.setTitle("111", for: .normal)
+
                 Room101Button.frame = CGRect(x:97 ,y:187 , width:30 , height:30)
                 Room102Button.frame = CGRect(x:97 ,y:257 , width:30 , height:30)
                 Room103Button.frame = CGRect(x:97 ,y:313 , width:30 , height:30)
@@ -263,17 +289,7 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             else if RoomData[row] == "Founders"
             {
                 BookRoomImage.image = RoomImages[row]
-                Room101Button.setTitle("101", for: .normal)
-                Room102Button.setTitle("102", for: .normal)
-                Room103Button.setTitle("103", for: .normal)
-                Room104Button.setTitle("Test2", for: .normal)
-                Room105Button.setTitle("105", for: .normal)
-                Room106Button.setTitle("106", for: .normal)
-                Room107Button.setTitle("107", for: .normal)
-                Room108Button.setTitle("108", for: .normal)
-                Room109Button.setTitle("109", for: .normal)
-                Room110Button.setTitle("Test1", for: .normal)
-                RoomButton111Button.setTitle("111", for: .normal)
+ 
                 Room101Button.frame = CGRect(x:150 ,y:191 , width:30 , height:30)
                 Room102Button.frame = CGRect(x:150 ,y:247 , width:30 , height:30)
                 Room103Button.frame = CGRect(x:150 ,y:306 , width:30 , height:30)
@@ -289,16 +305,7 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             else if RoomData[row] == "Farqhuar"
             {
                 BookRoomImage.image = RoomImages[row]
-                Room101Button.setTitle("101", for: .normal)
-                Room102Button.setTitle("102", for: .normal)
-                Room103Button.setTitle("103", for: .normal)
-                Room104Button.setTitle("104", for: .normal)
-                Room105Button.setTitle("105", for: .normal)
-                Room106Button.setTitle("106", for: .normal)
-                Room107Button.setTitle("107", for: .normal)
-                Room108Button.setTitle("108", for: .normal)
-                Room109Button.setTitle("109", for: .normal)
-                Room110Button.setTitle("110", for: .normal)
+
                 Room101Button.frame = CGRect(x:68 ,y:168 , width:30 , height:30)
                 Room102Button.frame = CGRect(x:68 ,y:233 , width:30 , height:30)
                 Room103Button.frame = CGRect(x:68 ,y:329 , width:30 , height:30)
@@ -313,17 +320,7 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             else if RoomData[row] == "Vettel"
             {
                 BookRoomImage.image = RoomImages[row]
-                Room101Button.setTitle("101", for: .normal)
-                Room102Button.setTitle("102", for: .normal)
-                Room103Button.setTitle("103", for: .normal)
-                Room104Button.setTitle("104", for: .normal)
-                Room105Button.setTitle("105", for: .normal)
-                Room106Button.setTitle("106", for: .normal)
-                Room107Button.setTitle("107", for: .normal)
-                Room108Button.setTitle("108", for: .normal)
-                Room109Button.setTitle("109", for: .normal)
-                Room110Button.setTitle("110", for: .normal)
-                RoomButton111Button.setTitle("111", for: .normal)
+
                 Room101Button.frame = CGRect(x:71 ,y:158 , width:30 , height:30)
                 Room102Button.frame = CGRect(x:71 ,y:247 , width:30 , height:30)
                 Room103Button.frame = CGRect(x:71 ,y:322 , width:30 , height:30)
@@ -339,17 +336,7 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             else if RoomData[row] == "Cultural Living Center"
             {
                 BookRoomImage.image = RoomImages[row]
-                Room101Button.setTitle("101", for: .normal)
-                Room102Button.setTitle("102", for: .normal)
-                Room103Button.setTitle("103", for: .normal)
-                Room104Button.setTitle("104", for: .normal)
-                Room105Button.setTitle("105", for: .normal)
-                Room106Button.setTitle("106", for: .normal)
-                Room107Button.setTitle("107", for: .normal)
-                Room108Button.setTitle("108", for: .normal)
-                Room109Button.setTitle("109", for: .normal)
-                Room110Button.setTitle("110", for: .normal)
-                RoomButton111Button.setTitle("111", for: .normal)
+
                 Room101Button.frame = CGRect(x:123 ,y:159 , width:30 , height:30)
                 Room102Button.frame = CGRect(x:117 ,y:244 , width:30 , height:30)
                 Room103Button.frame = CGRect(x:117 ,y:383 , width:30 , height:30)
@@ -365,16 +352,7 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             else if RoomData[row] == "Mako Hall"
             {
                 BookRoomImage.image = RoomImages[row]
-                Room101Button.setTitle("101", for: .normal)
-                Room102Button.setTitle("102", for: .normal)
-                Room103Button.setTitle("103", for: .normal)
-                Room104Button.setTitle("104", for: .normal)
-                Room105Button.setTitle("105", for: .normal)
-                Room106Button.setTitle("106", for: .normal)
-                Room107Button.setTitle("107", for: .normal)
-                Room108Button.setTitle("108", for: .normal)
-                Room109Button.setTitle("109", for: .normal)
-                Room110Button.setTitle("110", for: .normal)
+
                 Room101Button.frame = CGRect(x:68 ,y:264 , width:30 , height:30)
                 Room102Button.frame = CGRect(x:68 ,y:314 , width:30 , height:30)
                 Room103Button.frame = CGRect(x:68 ,y:379 , width:30 , height:30)
@@ -390,17 +368,7 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
             else if RoomData[row] == "Rolling Hills A"
             {
                 BookRoomImage.image = RoomImages[row]
-                Room101Button.setTitle("101", for: .normal)
-                Room102Button.setTitle("102", for: .normal)
-                Room103Button.setTitle("103", for: .normal)
-                Room104Button.setTitle("104", for: .normal)
-                Room105Button.setTitle("105", for: .normal)
-                Room106Button.setTitle("106", for: .normal)
-                Room107Button.setTitle("107", for: .normal)
-                Room108Button.setTitle("108", for: .normal)
-                Room109Button.setTitle("109", for: .normal)
-                Room110Button.setTitle("110", for: .normal)
-                RoomButton111Button.setTitle("111", for: .normal)
+
                 Room101Button.frame = CGRect(x:81 ,y:208 , width:30 , height:30)
                 Room102Button.frame = CGRect(x:81 ,y:287 , width:30 , height:30)
                 Room103Button.frame = CGRect(x:81 ,y:352 , width:30 , height:30)
@@ -418,6 +386,7 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
                 print("Not here yet")
                 
             }
+            print("key:", RoomKey[row])
             BuildingNameText.text = RoomData[row]
             keyIndex = row
             RoomSelected = true
@@ -454,6 +423,7 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
                 
             }
             print("Can call api now")
+            selectedBuilding = RoomKey[keyIndex]
             print("key: ", RoomKey[keyIndex])
             //Call API
             var APIString = "http://nova.us-east-2.elasticbeanstalk.com/api/GetAvailableRoomsByFloor?BuildingName=" + RoomKey[keyIndex]+"&FloorNumber="+String(FloorData[row])
@@ -478,14 +448,14 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
                 
                 do
                 {
-                    print("Start")
+                    //print("Start")
                     let rooms = try
                         JSONDecoder().decode([Room].self, from: data!)
                     print(rooms)
                     //Turns all available rooms green
                     for room in rooms
                     {
-                        print("Iteration:", room)
+                        //print("Iteration:", room)
                         if String(room.RoomNumber) == self.Room101Button.title(for: .normal)
                         {
                             DispatchQueue.main.async {
@@ -552,62 +522,11 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
                                 self.RoomButton111Button.backgroundColor = UIColor.green
                             }
                         }
+                    //print("Finished")
                     }
-                    
-                    //guard let Json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: Any] else { print(type(of: Json)); return }
-                    //let Json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? Any
-                    print("Before")
-                    //print("type of", type(of: Json))
-                    //print(Json)
-                    //let room = Room(json: Json)
-                    //print("RN:", room.RoomNumber)
-                    
-                    /*
-                    if let parseJSON == Json
-                    {
-                        let roomNumber = parseJSON["RoomNumber"] as String?
-                        print("roomNumber", roomNumber)
-                    }
-                    */
-                    /*
-                    if Json == true{
-                        print("Can login")
-                        DispatchQueue.main.async {
-                            let HomePageViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController") as! HomePageViewController
-                            
-                            self.present(HomePageViewController, animated: true)
-                        }
-                    }
-                    else{
-                        print("Cannot come outside")
-                        self.displayAlert(message: "Username or password is incorrect. Please try again")
-                    }
-                    print("After")
-                    
-                    if let parseJson = Json
-                    {
-                        let userID = parseJson["userID"] as? String
-                        print("User ID: \(String(describing: userID!))")
-                        if(userID?.isEmpty)!
-                        {
-                            self.displayAlert(message: "Couldn't perform at this time")
-                            return
-                        }
-                        else
-                        {
-                            self.displayAlert(message: "Signed in")
-                        }
-                    }
-                    else
-                    {
-                        self.displayAlert(message: "Couldn't perform")
-                    }
-                    */
                 }
                 catch
                 {
-                    //self.removeActivityIndicator(activityIndicator: myActivityIndicator)
-                    //self.displayAlert(message: "Couldn't do")
                     print("couldn't do error\(String(describing:error))")
                 }
                 
@@ -622,44 +541,3 @@ extension BackRoomViewController:UIPickerViewDelegate, UIPickerViewDataSource{
         }
     }
 }
-/*
-class datas: ObservableObject
-{
-    @Published var jsonData = []
-}
-*/
-struct Room: Decodable
-{
-    let RoomNumber: Int
-    var Price: Int
-    var Occupant1: Int?
-    var Occupant2: Int?
-    var Occupant3: Int?
-    var Occupant4: Int?
-    
-    /*
-    init(json: Any)
-    //init(from: Decoder) throws
-    {
-        RoomNumber = 1
-        Price = 1
-        Student1 = 1
-        Student2 = 1
-        Student3 = 1
-        Student4 = 1
-        /*
-        RoomNumber = json["RoomNumber"] as? Int ?? -1
-        Price = json["Price"] as? Double ?? -1.0
-        Student1 = json["Occupant1"] as? Int ?? -1
-        Student2 = json["Occupant2"] as? Int ?? -1
-        Student3 = json["Occupant3"] as? Int ?? -1
-        Student4 = json["Occupant4"] as? Int ?? -1
-        */
-    }
-    */
-}
-struct Result: Decodable
-{
-    let results: [Room]
-}
- 

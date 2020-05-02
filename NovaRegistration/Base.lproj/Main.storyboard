@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XJd-eu-A5F">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -43,7 +43,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alumni-fin-club-pin-blue" translatesAutoresizingMaskIntoConstraints="NO" id="bEW-i4-tzg">
-                                <rect key="frame" x="77" y="142" width="240" height="128"/>
+                                <rect key="frame" x="87" y="86" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NovaRoomText" translatesAutoresizingMaskIntoConstraints="NO" id="6yU-uk-gON">
+                                <rect key="frame" x="87" y="220" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -299,46 +303,54 @@
             </objects>
             <point key="canvasLocation" x="2382.608695652174" y="118.52678571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Review View Controller-->
         <scene sceneID="YRi-Yq-wGh">
             <objects>
-                <viewController id="XJd-eu-A5F" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReviewViewController" id="XJd-eu-A5F" customClass="ReviewViewController" customModule="NovaRegistration" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="76K-PJ-LyV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QBD-4d-A3f">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <navigationItem title="Review" id="KH2-VL-i1b">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="fG5-KG-ygV"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Room Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wde-Gh-F1k">
-                                <rect key="frame" x="20" y="274" width="115" height="21"/>
+                                <rect key="frame" x="20" y="274" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03T-jb-aLI">
-                                <rect key="frame" x="20" y="353" width="48" height="21"/>
+                                <rect key="frame" x="20" y="353" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QBD-4d-A3f">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <navigationItem title="Review" id="KH2-VL-i1b">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="fG5-KG-ygV">
+                                            <connections>
+                                                <action selector="BackButtonPressed:" destination="XJd-eu-A5F" id="9L4-K7-qZ7"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Os1-lq-s8b"/>
                     </view>
+                    <connections>
+                        <outlet property="PriceText" destination="03T-jb-aLI" id="acV-ZQ-Kwg"/>
+                        <outlet property="RoomNumberText" destination="Wde-Gh-F1k" id="DgZ-nj-upX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="elt-jJ-53x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3235" y="118"/>
+            <point key="canvasLocation" x="3234.7826086956525" y="117.85714285714285"/>
         </scene>
         <!--Home Page View Controller-->
         <scene sceneID="Pmc-In-0lF">
@@ -403,6 +415,9 @@
                                 <state key="normal" title="Review Reservation" image="reviewButtonFile">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="ReviewReservationPressed:" destination="Hxh-0r-Nj6" eventType="touchUpInside" id="eKe-cU-5h7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -420,6 +435,7 @@
     <resources>
         <image name="FloorPlanRedone1" width="490" height="926"/>
         <image name="NSUFloridaWebWhite" width="1103" height="199"/>
+        <image name="NovaRoomText" width="320" height="50"/>
         <image name="alumni-fin-club-pin-blue" width="200" height="200"/>
         <image name="bookButtonFile" width="350" height="255"/>
         <image name="nsuLogo" width="375" height="255"/>
