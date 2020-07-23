@@ -43,7 +43,7 @@ To save sensitive information across our application we stored information in Ap
 # List of APIs
 
 
-![API's](./Pictures/APIs.jpg)
+![API's](./Pictures/APIsCropped.jpg)
 
 
 
